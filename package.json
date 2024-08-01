@@ -1,34 +1,37 @@
 {
-  "name": "@neoimpulse/cds-trim-plugin",
-  "version": "1.0.1",
-  "description": "A CDS plugin to trim string attributes automatically",
-  "main": "cds-plugin.js",
-  "scripts": {
-    "pretty": "npx prettier --write ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://dev.azure.com/neoimpulse/CAP%20Plugins/_git/trim"
-  },
-  "keywords": [
-    "cds",
-    "cap",
-    "trim",
-    "plugin"
-  ],
-  "author": "Neoimpulse GmbH",
-  "license": "MIT",
-  "dependencies": {
-    "@sap/cds": "^8",
-    "express": "^4.17.1"
-  },
-  "devDependencies": {
-    "jest": "^27",
-    "supertest": "^6"
-  },
-  "cds": {
-    "requires": {
-        "trim": {}
+    "name": "@neoimpulse/cap-js-trim",
+    "version": "0.0.0-development",
+    "description": "A CDS plugin to trim string attributes automatically",
+    "main": "cds-plugin.js",
+    "scripts": {
+        "pretty": "npx prettier --write ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://dev.azure.com/neoimpulse/CAP%20Plugins/_git/trim"
+    },
+    "keywords": [
+        "cds",
+        "cap",
+        "trim",
+        "plugin"
+    ],
+    "author": "Neoimpulse GmbH",
+    "license": "MIT",
+    "publishConfig": {
+        "access": "public"
+    },
+    "dependencies": {
+        "@sap/cds": "^8",
+        "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "prettier": "^3.3.3",
+        "semantic-release": "^24.0.0"
+    },
+    "cds": {
+        "requires": {
+            "trim": {}
+        }
     }
-  }
 }
