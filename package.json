@@ -8,7 +8,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://dev.azure.com/neoimpulse/CAP%20Plugins/_git/trim"
+        "url": "https://github.com/neoimpulseGmbH/cap-js-trim"
     },
     "keywords": [
         "cds",
