@@ -21,6 +21,12 @@
     "publishConfig": {
         "access": "public"
     },
+    "files": [
+        "cds-plugin.js",
+        "package.json",
+        "LICENSE",
+        "README.md"
+    ],
     "dependencies": {
         "@sap/cds": "^8",
         "express": "^4.17.1"
