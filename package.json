@@ -19,9 +19,8 @@
   "author": "Neoimpulse GmbH",
   "license": "MIT",
   "dependencies": {
-    "@sap/cds": "^5",
-    "express": "^4.17.1",
-    "sqlite3": "^5.0.2"
+    "@sap/cds": "^8",
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "jest": "^27",
