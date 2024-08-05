@@ -28,7 +28,7 @@
         "README.md"
     ],
     "dependencies": {
-        "@sap/cds": "^8",
+        "@sap/cds": "^7",
         "express": "^4.17.1"
     },
     "devDependencies": {
@@ -37,7 +37,7 @@
     },
     "cds": {
         "requires": {
-            "trim": {}
+            "cap-js-trim": {}
         }
     }
 }
