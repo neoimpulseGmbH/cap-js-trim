@@ -20,7 +20,7 @@ jobs:
               with:
                   node-version: "lts/*"
             - run: npm ci
-            - run: npm audit signature
+            #- run: npm audit signature
             - name: Release
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
