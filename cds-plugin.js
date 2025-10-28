@@ -29,7 +29,9 @@ const trimField = (req, fieldKey) => {
 const registerHandler = (srv, entity, handler) => {
     const events = ["CREATE", "UPDATE", "PATCH"];
     srv.before(events, entity, handler);
-    srv.before(events, entity.drafts, handler);
+    if (entity.drafts) {
+        srv.before(events, entity.drafts, handler);
+    }
 };
 
 
