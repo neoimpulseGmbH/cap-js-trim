@@ -28,12 +28,12 @@
         "README.md"
     ],
     "dependencies": {
-        "@sap/cds": "^8",
-        "express": "^4.17.1"
+        "@sap/cds": "^9",
+        "express": "^4"
     },
     "devDependencies": {
-        "prettier": "^3.3.3",
-        "semantic-release": "^24.2.3"
+        "prettier": "^3",
+        "semantic-release": "^24"
     },
     "cds": {
         "requires": {
