@@ -8,19 +8,30 @@ const shouldTrim = (value) => {
 
 
 // Helper function to trim all string fields in data
-const trimAllFields = (req) => {
-    for (const key in req.data) {
-        if (shouldTrim(req.data[key])) {
-            req.data[key] = req.data[key].trim();
+const trimAllFields = (data) => {
+    for (const key in data) {
+        if (shouldTrim(data[key])) {
+            data[key] = data[key].trim();
         }
     }
 };
 
 
 // Helper function to trim a specific field
-const trimField = (req, fieldKey) => {
-    if (shouldTrim(req.data[fieldKey])) {
-        req.data[fieldKey] = req.data[fieldKey].trim();
+const trimField = (data, fieldKey) => {
+    if (shouldTrim(data[fieldKey])) {
+        data[fieldKey] = data[fieldKey].trim();
+    }
+};
+
+
+// Helper function to apply a handler to every entry of a request.
+// Since cds 10 bulk inserts via REST arrive as an array in req.data.
+const forEachEntry = (req, handler) => {
+    if (Array.isArray(req.data)) {
+        req.data.forEach(handler);
+    } else if (req.data) {
+        handler(req.data);
     }
 };
 
@@ -40,12 +51,12 @@ cds.once("served", () => {
         if (!(srv instanceof cds.ApplicationService)) continue;
         for (let entity of srv.entities) {
             if (entity["@cds.trim"]) {
-                registerHandler(srv, entity, trimAllFields);
+                registerHandler(srv, entity, (req) => forEachEntry(req, trimAllFields));
             } else {
                 for (const key in entity.elements) {
                     const element = entity.elements[key];
                     if (element.type === "cds.String" && element["@cds.trim"]) {
-                        registerHandler(srv, entity, (req) => trimField(req, key));
+                        registerHandler(srv, entity, (req) => forEachEntry(req, (data) => trimField(data, key)));
                     }
                 }
             }

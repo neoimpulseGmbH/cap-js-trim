@@ -27,11 +27,11 @@
         "LICENSE",
         "README.md"
     ],
-    "dependencies": {
-        "@sap/cds": "^9",
-        "express": "^4"
+    "peerDependencies": {
+        "@sap/cds": ">=9"
     },
     "devDependencies": {
+        "@sap/cds": "^10",
         "prettier": "^3",
         "semantic-release": "^24"
     },
