@@ -25,14 +25,4 @@ jobs:
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-              run: |
-                  set +e
-                  npx semantic-release > /tmp/release.log 2>&1
-                  status=$?
-                  cat /tmp/release.log
-                  sed -r 's/\x1b\[[0-9;]*m//g' /tmp/release.log | grep -aiE "npm error|npm ERR|401|403|EOTP|✖|An error occurred|Failed step|whoami|E[A-Z]{3,}" | grep -av "Loaded plugin" | head -n 12 | python3 -c "
-                  import sys
-                  for line in sys.stdin:
-                      print('::error title=diag::' + line.strip().replace('%','%25').replace('\r',''))
-                  "
-                  exit $status
+              run: npx semantic-release
